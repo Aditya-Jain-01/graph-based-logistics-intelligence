@@ -1,0 +1,233 @@
+feature,importance,category
+segment_osrm_time,0.025499841,Trip / OSRM
+segment_osrm_distance,0.014007936,Trip / OSRM
+osrm_speed_kmh,0.0012896031,Trip / OSRM
+departure_hour,0.00056966936,Trip / OSRM
+hour_sin,0.0008952298,Trip / OSRM
+hour_cos,0.00080169097,Trip / OSRM
+is_weekend,0.0,Trip / OSRM
+is_night_shipment,0.0011684082,Trip / OSRM
+route_type_encoded,0.006637009,Trip / OSRM
+departure_day_of_week,0.0009684642,Trip / OSRM
+cutoff_factor,0.003688006,Trip / OSRM
+is_cutoff,0.043253846,Trip / OSRM
+corridor_median_delay,0.00610228,Corridor aggregate
+corridor_mean_delay,0.022005562,Corridor aggregate
+corridor_delay_std,0.004132,Corridor aggregate
+corridor_trip_volume,0.002603937,Corridor aggregate
+corridor_pct_delayed,0.010688342,Corridor aggregate
+src_betweenness,0.0025836534,Graph centrality
+src_closeness,0.0021081425,Graph centrality
+src_pagerank,0.0008153102,Graph centrality
+src_clustering,0.0015517761,Graph centrality
+src_in_degree,0.0007701706,Graph centrality
+src_out_degree,0.10874354,Graph centrality
+src_weighted_in,0.0023268606,Graph centrality
+src_weighted_out,0.0011112796,Graph centrality
+src_sla_breach_score,0.004112067,Graph centrality
+src_inbound_breach_score,0.0033551995,Graph centrality
+dst_betweenness,0.0037395395,Graph centrality
+dst_closeness,0.0014280495,Graph centrality
+dst_pagerank,0.0013320338,Graph centrality
+dst_clustering,0.0017395271,Graph centrality
+dst_in_degree,0.002035731,Graph centrality
+dst_out_degree,0.0008190961,Graph centrality
+dst_weighted_in,0.0038524352,Graph centrality
+dst_weighted_out,0.0016131187,Graph centrality
+dst_sla_breach_score,0.0006261918,Graph centrality
+dst_inbound_breach_score,0.0030155093,Graph centrality
+src_n2v_0,0.0031547078,Node2Vec embedding
+src_n2v_1,0.002037159,Node2Vec embedding
+src_n2v_2,0.0021842585,Node2Vec embedding
+src_n2v_3,0.001497621,Node2Vec embedding
+src_n2v_4,0.0014962923,Node2Vec embedding
+src_n2v_5,0.0011861675,Node2Vec embedding
+src_n2v_6,0.0038449354,Node2Vec embedding
+src_n2v_7,0.0019096585,Node2Vec embedding
+src_n2v_8,0.007812734,Node2Vec embedding
+src_n2v_9,0.0029681395,Node2Vec embedding
+src_n2v_10,0.001504896,Node2Vec embedding
+src_n2v_11,0.0010017265,Node2Vec embedding
+src_n2v_12,0.0013982612,Node2Vec embedding
+src_n2v_13,0.0024315687,Node2Vec embedding
+src_n2v_14,0.01339987,Node2Vec embedding
+src_n2v_15,0.0025827067,Node2Vec embedding
+src_n2v_16,0.0031533095,Node2Vec embedding
+src_n2v_17,0.0011106327,Node2Vec embedding
+src_n2v_18,0.0029875794,Node2Vec embedding
+src_n2v_19,0.0072316127,Node2Vec embedding
+src_n2v_20,0.0022179184,Node2Vec embedding
+src_n2v_21,0.0021381278,Node2Vec embedding
+src_n2v_22,0.0051028104,Node2Vec embedding
+src_n2v_23,0.004125049,Node2Vec embedding
+src_n2v_24,0.0020079957,Node2Vec embedding
+src_n2v_25,0.0019013542,Node2Vec embedding
+src_n2v_26,0.0023561092,Node2Vec embedding
+src_n2v_27,0.0014980561,Node2Vec embedding
+src_n2v_28,0.0033733856,Node2Vec embedding
+src_n2v_29,0.0027038704,Node2Vec embedding
+src_n2v_30,0.0022915944,Node2Vec embedding
+src_n2v_31,0.0028331643,Node2Vec embedding
+dst_n2v_0,0.0013389285,Node2Vec embedding
+dst_n2v_1,0.004487132,Node2Vec embedding
+dst_n2v_2,0.010146667,Node2Vec embedding
+dst_n2v_3,0.0018691478,Node2Vec embedding
+dst_n2v_4,0.0028309748,Node2Vec embedding
+dst_n2v_5,0.0012254341,Node2Vec embedding
+dst_n2v_6,0.005226057,Node2Vec embedding
+dst_n2v_7,0.0010616333,Node2Vec embedding
+dst_n2v_8,0.009093684,Node2Vec embedding
+dst_n2v_9,0.0008671787,Node2Vec embedding
+dst_n2v_10,0.002211008,Node2Vec embedding
+dst_n2v_11,0.001702802,Node2Vec embedding
+dst_n2v_12,0.009055876,Node2Vec embedding
+dst_n2v_13,0.0027049812,Node2Vec embedding
+dst_n2v_14,0.0101602655,Node2Vec embedding
+dst_n2v_15,0.0038304243,Node2Vec embedding
+dst_n2v_16,0.011371389,Node2Vec embedding
+dst_n2v_17,0.0023548938,Node2Vec embedding
+dst_n2v_18,0.00079255056,Node2Vec embedding
+dst_n2v_19,0.003260782,Node2Vec embedding
+dst_n2v_20,0.0023928941,Node2Vec embedding
+dst_n2v_21,0.0023205874,Node2Vec embedding
+dst_n2v_22,0.0062027834,Node2Vec embedding
+dst_n2v_23,0.0017736498,Node2Vec embedding
+dst_n2v_24,0.0030474297,Node2Vec embedding
+dst_n2v_25,0.0050524767,Node2Vec embedding
+dst_n2v_26,0.006591431,Node2Vec embedding
+dst_n2v_27,0.0015726668,Node2Vec embedding
+dst_n2v_28,0.0018051456,Node2Vec embedding
+dst_n2v_29,0.0050327186,Node2Vec embedding
+dst_n2v_30,0.0013271635,Node2Vec embedding
+dst_n2v_31,0.00407476,Node2Vec embedding
+cos_sim_n2v,0.002332939,Cosine similarity
+src_sage_0,0.0017687872,GraphSAGE embedding (unsup)
+src_sage_1,0.0012001441,GraphSAGE embedding (unsup)
+src_sage_2,0.01554136,GraphSAGE embedding (unsup)
+src_sage_3,0.00093720475,GraphSAGE embedding (unsup)
+src_sage_4,0.0021489735,GraphSAGE embedding (unsup)
+src_sage_5,0.0042748856,GraphSAGE embedding (unsup)
+src_sage_6,0.001395232,GraphSAGE embedding (unsup)
+src_sage_7,0.0020419923,GraphSAGE embedding (unsup)
+src_sage_8,0.0029910905,GraphSAGE embedding (unsup)
+src_sage_9,0.009380725,GraphSAGE embedding (unsup)
+src_sage_10,0.00096977246,GraphSAGE embedding (unsup)
+src_sage_11,0.005275378,GraphSAGE embedding (unsup)
+src_sage_12,0.0015897455,GraphSAGE embedding (unsup)
+src_sage_13,0.0015252181,GraphSAGE embedding (unsup)
+src_sage_14,0.00087056065,GraphSAGE embedding (unsup)
+src_sage_15,0.0010615679,GraphSAGE embedding (unsup)
+src_sage_16,0.002059016,GraphSAGE embedding (unsup)
+src_sage_17,0.0025892525,GraphSAGE embedding (unsup)
+src_sage_18,0.01085491,GraphSAGE embedding (unsup)
+src_sage_19,0.0016012271,GraphSAGE embedding (unsup)
+src_sage_20,0.012172367,GraphSAGE embedding (unsup)
+src_sage_21,0.0014195198,GraphSAGE embedding (unsup)
+src_sage_22,0.0030689582,GraphSAGE embedding (unsup)
+src_sage_23,0.004409087,GraphSAGE embedding (unsup)
+src_sage_24,0.0009039565,GraphSAGE embedding (unsup)
+src_sage_25,0.0009539711,GraphSAGE embedding (unsup)
+src_sage_26,0.0009825759,GraphSAGE embedding (unsup)
+src_sage_27,0.007759852,GraphSAGE embedding (unsup)
+src_sage_28,0.008831899,GraphSAGE embedding (unsup)
+src_sage_29,0.004893671,GraphSAGE embedding (unsup)
+src_sage_30,0.003111051,GraphSAGE embedding (unsup)
+src_sage_31,0.00096822716,GraphSAGE embedding (unsup)
+dst_sage_0,0.000554249,GraphSAGE embedding (unsup)
+dst_sage_1,0.0036439456,GraphSAGE embedding (unsup)
+dst_sage_2,0.0008393335,GraphSAGE embedding (unsup)
+dst_sage_3,0.008908326,GraphSAGE embedding (unsup)
+dst_sage_4,0.011784201,GraphSAGE embedding (unsup)
+dst_sage_5,0.0043790196,GraphSAGE embedding (unsup)
+dst_sage_6,0.0012622162,GraphSAGE embedding (unsup)
+dst_sage_7,0.0030664804,GraphSAGE embedding (unsup)
+dst_sage_8,0.0014195293,GraphSAGE embedding (unsup)
+dst_sage_9,0.0018885224,GraphSAGE embedding (unsup)
+dst_sage_10,0.0025161724,GraphSAGE embedding (unsup)
+dst_sage_11,0.0014740137,GraphSAGE embedding (unsup)
+dst_sage_12,0.012879357,GraphSAGE embedding (unsup)
+dst_sage_13,0.004010451,GraphSAGE embedding (unsup)
+dst_sage_14,0.006696529,GraphSAGE embedding (unsup)
+dst_sage_15,0.00057317194,GraphSAGE embedding (unsup)
+dst_sage_16,0.00064295955,GraphSAGE embedding (unsup)
+dst_sage_17,0.00096279266,GraphSAGE embedding (unsup)
+dst_sage_18,0.04554536,GraphSAGE embedding (unsup)
+dst_sage_19,0.0039195227,GraphSAGE embedding (unsup)
+dst_sage_20,0.006494848,GraphSAGE embedding (unsup)
+dst_sage_21,0.001792563,GraphSAGE embedding (unsup)
+dst_sage_22,0.002606314,GraphSAGE embedding (unsup)
+dst_sage_23,0.0014811705,GraphSAGE embedding (unsup)
+dst_sage_24,0.0008239615,GraphSAGE embedding (unsup)
+dst_sage_25,0.00060072093,GraphSAGE embedding (unsup)
+dst_sage_26,0.00090321625,GraphSAGE embedding (unsup)
+dst_sage_27,0.0043774466,GraphSAGE embedding (unsup)
+dst_sage_28,0.00024955126,GraphSAGE embedding (unsup)
+dst_sage_29,0.008499323,GraphSAGE embedding (unsup)
+dst_sage_30,0.0020470712,GraphSAGE embedding (unsup)
+dst_sage_31,0.004762234,GraphSAGE embedding (unsup)
+cos_sim_sage,0.0052545904,Cosine similarity
+src_sup_sage_0,0.017361758,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_1,0.0015153944,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_2,0.0038122374,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_3,0.0018097648,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_4,0.0051385653,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_5,0.004725478,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_6,0.0019165473,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_7,0.0022268656,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_8,0.0034075505,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_9,0.0025488294,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_10,0.0039666807,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_11,0.002568677,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_12,0.0032219163,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_13,0.0012146289,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_14,0.00080269395,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_15,0.0008962009,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_16,0.0007400664,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_17,0.0046388814,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_18,0.0023307125,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_19,0.001636349,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_20,0.0003518404,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_21,0.0059421924,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_22,0.004117476,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_23,0.0020003908,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_24,0.0027071924,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_25,0.0040156725,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_26,0.0007530606,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_27,0.01262524,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_28,0.013681478,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_29,0.0014303937,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_30,0.0004554681,Supervised GraphSAGE (PRIMARY)
+src_sup_sage_31,0.0017336422,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_0,0.0009913245,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_1,0.0034007793,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_2,0.0006746655,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_3,0.0034798686,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_4,0.0004149812,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_5,0.004474789,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_6,0.002292574,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_7,0.0005336261,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_8,0.0035295961,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_9,0.0035868504,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_10,0.015843403,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_11,0.0005463092,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_12,0.0014474442,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_13,0.0011655722,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_14,0.001901002,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_15,0.0010805156,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_16,0.0008394397,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_17,0.0028967173,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_18,0.0026190642,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_19,0.0013060494,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_20,0.0022830977,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_21,0.0012304693,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_22,0.0017563362,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_23,0.00086905976,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_24,0.002588047,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_25,0.008593225,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_26,0.0017006911,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_27,0.0021405022,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_28,0.0011611735,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_29,0.0024259838,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_30,0.0013242821,Supervised GraphSAGE (PRIMARY)
+dst_sup_sage_31,0.0041080075,Supervised GraphSAGE (PRIMARY)
+cos_sim_sup_sage,0.0055366214,Cosine similarity

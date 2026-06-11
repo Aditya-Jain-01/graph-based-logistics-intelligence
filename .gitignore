@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+.venv/
+
+# VS Code
+.vscode/
+
+# Streamlit cache
+.streamlit/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large model checkpoints (optional)
+*.pt
+*.pth
+
+# Jupyter
+.ipynb_checkpoints/
