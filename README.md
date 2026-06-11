@@ -18,7 +18,8 @@ Built for the Delhivery logistics network (~1,800 facilities, ~3,200 corridors, 
 - [ETA Prediction Pipeline](#eta-prediction-pipeline)
 - [Dashboard Architecture](#dashboard-architecture)
 - [Repository Structure](#repository-structure)
-- [Reproducing the Project](#reproducing-the-project)
+- [Environment Setup](#environment-setup)
+- [Why Two Requirements Files?](#why-two-requirements-files)
 - [Design Decisions](#design-decisions)
 - [Future Work](#future-work)
 
@@ -448,7 +449,8 @@ load_graph()             # → nx.DiGraph reconstructed from node_df + edge_df (
 │   ├── app.py                               # Streamlit entry point and sidebar
 │   ├── export_artifacts.py                  # Offline pipeline: data → graph → embeddings
 │   │                                         #   → XGBoost → serialized artifacts
-│   ├── requirements.txt                     # Python dependencies
+│   ├── requirements.txt                     # Dashboard/serving dependencies (lightweight)
+│   ├── requirements-train.txt               # Training pipeline dependencies (PyTorch, PyG, Node2Vec)
 │   ├── delivery_data.csv                    # Source dataset (~42 MB)
 │   ├── AI_CONTEXT.md                        # Development guidelines for contributors
 │   │
@@ -499,27 +501,39 @@ load_graph()             # → nx.DiGraph reconstructed from node_df + edge_df (
 
 ---
 
-## Reproducing the Project
+## Environment Setup
+
+The project maintains two separate dependency manifests to decouple the training pipeline from the serving layer.
 
 ### Prerequisites
 
 - Python 3.8+
 - CUDA-capable GPU (optional; GraphSAGE trains on CPU in ~2 minutes for this graph size)
 
-### Step 1: Environment Setup
-
 ```bash
 git clone <repository-url>
-cd delhivery-graph-eta
+cd graph-based-logistics-intelligence
 
 python -m venv venv
 # Windows
 venv\Scripts\activate
 # macOS / Linux
 source venv/bin/activate
+```
 
-cd dashboard
-pip install -r requirements.txt
+### Training Environment
+
+Used for:
+
+- Node2Vec training (biased random walks + Word2Vec)
+- GraphSAGE training (unsupervised contrastive + supervised MSE)
+- XGBoost training (5-model ablation study)
+- Artifact generation (serialized CSVs, PKLs, JSONs)
+
+#### Installation
+
+```bash
+pip install -r dashboard/requirements-train.txt
 ```
 
 #### Dependencies
@@ -535,30 +549,84 @@ xgboost>=1.7.0
 scikit-learn>=1.2.0
 matplotlib>=3.6.0
 seaborn>=0.12.0
-streamlit>=1.28.0
-plotly>=5.15.0
+joblib>=1.3.0
 ```
 
-### Step 2: Data Preparation
+#### Data Preparation
 
 Place `delivery_data.csv` in the `dashboard/` directory. The dataset should contain the pre-defined `training` / `test` split in the `data` column.
 
-### Step 3: Run the Offline Pipeline
+#### Execution
 
 ```bash
-cd dashboard
-python export_artifacts.py
+python dashboard/export_artifacts.py
 ```
 
-This generates all 12 artifacts in `dashboard/artifacts/`. Expected runtime: 5–10 minutes on CPU.
+This generates the following artifacts in `dashboard/artifacts/`:
 
-### Step 4: Launch the Dashboard
+| Artifact | Contents |
+|----------|----------|
+| `benchmark_results.csv` | 5-model ablation study metrics (MAE, RMSE, R², Within-15%) |
+| `node_df.csv` | Node-level centrality metrics and composite bottleneck rank |
+| `edge_df.csv` | Edge-level betweenness centrality and delay statistics |
+| `node2vec_embeddings.csv` | 32-dim Node2Vec vectors per facility |
+| `graphsage_embeddings.csv` | 32-dim unsupervised GraphSAGE vectors per facility |
+| `feature_importance.csv` | Per-feature importance scores with category labels |
+| `best_xgb_model.pkl` | Serialized XGBoost model (full feature set) |
+| `executive_metrics.json` | Summary KPIs for the dashboard executive overview |
+
+Additional artifacts (`bottleneck_hubs.csv`, `chronic_corridors.csv`, `sup_sage_embeddings.csv`, `graph_metadata.json`) are also generated. Expected runtime: 5–10 minutes on CPU.
+
+---
+
+### Dashboard Environment
+
+Used only for inference and visualization. The dashboard loads precomputed artifacts from `dashboard/artifacts/` and does **not** retrain any models.
+
+#### Installation
 
 ```bash
-streamlit run app.py
+pip install -r dashboard/requirements.txt
+```
+
+#### Dependencies
+
+```
+pandas>=1.5.0
+numpy>=1.23.0
+networkx>=3.0
+xgboost>=1.7.0
+scikit-learn>=1.2.0
+streamlit>=1.28.0
+plotly>=5.15.0
+joblib>=1.3.0
+matplotlib>=3.6.0
+seaborn>=0.12.0
+```
+
+Note: `torch`, `torch-geometric`, and `node2vec` are **not** required for the dashboard. The serving layer only needs XGBoost for `model.predict()` and NetworkX for graph reconstruction from cached node/edge DataFrames.
+
+#### Execution
+
+```bash
+streamlit run dashboard/app.py
 ```
 
 The application will be available at `http://localhost:8501`.
+
+---
+
+## Why Two Requirements Files?
+
+Training dependencies (`torch`, `torch-geometric`, `node2vec`) are large, have complex build chains (CUDA, C++ extensions), and are expensive to install. The dashboard does not execute any training code — it loads precomputed embeddings from CSVs and runs inference through a serialized XGBoost model.
+
+Separating the two environments provides three concrete benefits:
+
+1. **Deployment reliability**: The production dashboard installs in seconds with pure-Python wheels. No PyTorch compilation, no CUDA version conflicts, no platform-specific `torch-geometric` builds.
+2. **Smaller attack surface**: Production containers carry only the packages they execute. Training-only dependencies (random walk samplers, GNN layers) are absent from the serving image.
+3. **Independent lifecycle management**: Training environments can pin to specific PyTorch/PyG versions for reproducibility, while the dashboard can upgrade Streamlit or Plotly independently without risking training regressions.
+
+This follows standard MLOps practice: train offline, serialize artifacts, serve with a minimal runtime.
 
 ---
 
