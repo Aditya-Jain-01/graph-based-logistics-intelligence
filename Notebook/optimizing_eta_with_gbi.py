@@ -57,7 +57,7 @@ print("\n" + "=" * 50)
 print("FIRST 5 ROWS")
 print("=" * 50)
 
-display(df.head())
+print(df.head())
 
 
 #statistical summary
@@ -67,7 +67,7 @@ print("\n" + "=" * 50)
 print("STATISTICAL SUMMARY")
 print("=" * 50)
 
-display(df.describe())
+print(df.describe())
 
 #complete df info
 
@@ -440,7 +440,6 @@ print("Plots saved as ps4_eda_plots.png")
 
 """# Section - Graph Making"""
 
-!pip install networkx node2vec torch torch-geometric xgboost
 
 #trip-level data into corridor-level
 #Stratified corridor aggregation (strata=subgroups)
@@ -827,7 +826,6 @@ n2v_emb = {n: (n2v_model.wv[n] if n in n2v_model.wv else np.zeros(EMBEDDING_DIM)
            for n in G.nodes()}
 print(f"Node2Vec embeddings ready for {len(n2v_emb):,} hubs.")
 
-!pip install --quiet torch torch-geometric
 
 # GraphSAGE
 
